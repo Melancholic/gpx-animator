@@ -91,6 +91,7 @@ public enum Option {
     PREVIEW_LENGTH("preview-length"),
     GPS_TIMEOUT("gps-timeout"),
     VERSION("version"),
+    SPLIT_MULTI_TRACKS("split-multi-tracks"),
     ONE_ICON_FOR_MULTI_TRACKS("one-icon-for-multi-tracks");
 
     private static final java.util.Map<String, Option> OPTION_MAP = new HashMap<>();

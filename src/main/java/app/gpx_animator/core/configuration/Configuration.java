@@ -142,6 +142,7 @@ public final class Configuration {
     @XmlElement(name = "trackConfiguration") //NON-NLS
     private List<TrackConfiguration> trackConfigurationList;
 
+    private boolean splitMultiTracks = false;
     private boolean oneIconForMultiTacks;
 
     // for JAXB
@@ -167,6 +168,7 @@ public final class Configuration {
             final boolean preview, final Long previewLength,
             final long gpsTimeout,
             final List<TrackConfiguration> trackConfigurationList,
+            final boolean splitMultiTracks,
             final boolean oneIconForMultiTacks) {
 
         this.margin = margin;
@@ -222,6 +224,7 @@ public final class Configuration {
         this.preview = preview;
         this.previewLength = previewLength;
         this.gpsTimeout = gpsTimeout;
+        this.splitMultiTracks = splitMultiTracks;
         this.oneIconForMultiTacks = oneIconForMultiTacks;
     }
 
@@ -441,6 +444,10 @@ public final class Configuration {
         return Collections.unmodifiableList(trackConfigurationList);
     }
 
+    public boolean isSplitMultiTracks() {
+        return splitMultiTracks;
+    }
+
     public boolean isOneIconForMultiTacks() {
         return oneIconForMultiTacks;
     }
@@ -526,6 +533,7 @@ public final class Configuration {
         private boolean preview = false;
         private Long previewLength;
         private long gpsTimeout = DEFAULT_GPS_TIMEOUT;
+        private boolean splitMultiTracks = false;
         private boolean oneIconForMultiTacks = false;
 
 
@@ -547,6 +555,7 @@ public final class Configuration {
                     preview, previewLength,
                     gpsTimeout,
                     Collections.unmodifiableList(trackConfigurationList),
+                    splitMultiTracks,
                     oneIconForMultiTacks
             );
         }
@@ -815,6 +824,15 @@ public final class Configuration {
         public Builder gpsTimeout(final long gpsTimeout) {
             this.gpsTimeout = gpsTimeout;
             return this;
+        }
+
+        public Builder splitMultiTracks(final boolean splitMultiTracks) {
+            this.splitMultiTracks = splitMultiTracks;
+            return this;
+        }
+
+        public boolean isSplitMultiTracks() {
+            return this.splitMultiTracks;
         }
 
         public Builder oneIconForMultiTacks(final boolean oneIconForMultiTacks) {
