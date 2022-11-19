@@ -193,6 +193,7 @@ public final class CommandLineConfigurationFactory {
                         case WAYPOINT_SIZE -> cfg.waypointSize(Double.parseDouble(args[++i]));
                         case WIDTH -> cfg.width(Integer.parseInt(args[++i]));
                         case ZOOM -> cfg.zoom(Integer.parseInt(args[++i]));
+                        case ONE_ICON_FOR_MULTI_TRACKS -> cfg.oneIconForMultiTacks(true);
                         case VERSION -> {
                             try (var pw = new PrintWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8))) {
                                 pw.println(Constants.APPNAME_VERSION);

@@ -95,6 +95,7 @@ public final class Help {
         w.writeOptionHelp(Option.VIEWPORT_HEIGHT, "viewport-height", false, cfg.getViewportHeight()); //NON-NLS
         w.writeOptionHelp(Option.VIEWPORT_INERTIA, "viewport-inertia", false, cfg.getViewportInertia()); //NON-NLS
         w.writeOptionHelp(Option.WAYPOINT_SIZE, "size", false, cfg.getWaypointSize()); //NON-NLS
+        w.writeOptionHelp(Option.ONE_ICON_FOR_MULTI_TRACKS, "one-icon-for-multi-tracks", false, cfg.isOneIconForMultiTacks()); //NON-NLS
         w.writeOptionHelp(Option.WIDTH, "width", false, cfg.getWidth()); //NON-NLS
         w.writeOptionHelp(Option.ZOOM, "zoom", false, cfg.getZoom()); //NON-NLS
         w.writeOptionHelp(Option.GPS_TIMEOUT, "milliseconds", false, cfg.getGpsTimeout()); //NON-NLS

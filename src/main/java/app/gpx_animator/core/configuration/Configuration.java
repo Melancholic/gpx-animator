@@ -142,6 +142,7 @@ public final class Configuration {
     @XmlElement(name = "trackConfiguration") //NON-NLS
     private List<TrackConfiguration> trackConfigurationList;
 
+    private boolean oneIconForMultiTacks;
 
     // for JAXB
     @SuppressWarnings("unused")
@@ -165,7 +166,8 @@ public final class Configuration {
             final File photoDirectory, final Long photoTime, final Long photoAnimationDuration,
             final boolean preview, final Long previewLength,
             final long gpsTimeout,
-            final List<TrackConfiguration> trackConfigurationList) {
+            final List<TrackConfiguration> trackConfigurationList,
+            final boolean oneIconForMultiTacks) {
 
         this.margin = margin;
         this.width = width;
@@ -220,6 +222,7 @@ public final class Configuration {
         this.preview = preview;
         this.previewLength = previewLength;
         this.gpsTimeout = gpsTimeout;
+        this.oneIconForMultiTacks = oneIconForMultiTacks;
     }
 
     public static Builder createBuilder() {
@@ -438,6 +441,10 @@ public final class Configuration {
         return Collections.unmodifiableList(trackConfigurationList);
     }
 
+    public boolean isOneIconForMultiTacks() {
+        return oneIconForMultiTacks;
+    }
+
     private static File validateLogo(final File logo) {
         return logo != null && logo.isFile() ? logo : null;
     }
@@ -519,6 +526,7 @@ public final class Configuration {
         private boolean preview = false;
         private Long previewLength;
         private long gpsTimeout = DEFAULT_GPS_TIMEOUT;
+        private boolean oneIconForMultiTacks = false;
 
 
         public Configuration build() {
@@ -538,7 +546,8 @@ public final class Configuration {
                     photoDirectory, photoTime, photoAnimationDuration,
                     preview, previewLength,
                     gpsTimeout,
-                    Collections.unmodifiableList(trackConfigurationList)
+                    Collections.unmodifiableList(trackConfigurationList),
+                    oneIconForMultiTacks
             );
         }
 
@@ -805,6 +814,11 @@ public final class Configuration {
 
         public Builder gpsTimeout(final long gpsTimeout) {
             this.gpsTimeout = gpsTimeout;
+            return this;
+        }
+
+        public Builder oneIconForMultiTacks(final boolean oneIconForMultiTacks) {
+            this.oneIconForMultiTacks = oneIconForMultiTacks;
             return this;
         }
     }
